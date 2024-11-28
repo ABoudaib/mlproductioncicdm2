@@ -37,7 +37,7 @@ jobs:
           git config --global user.name "Abel Boudaib"
           git config --global user.email "abel8177@gmail.com"
 
-      - name: Checkout main branch and merge
+      - name: Checkout main branch and merge dev
         run: |
           git fetch
           git checkout main
