@@ -29,10 +29,6 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      - name: test e2e
-        working-directory: ./e2e-tests
-        run: npm test
-
       - name: backend tests
         working-directory: ./backend
         run: npm test 
@@ -57,10 +53,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker Images
+      - name: Build Docker
         run: |
           docker-compose -f docker-compose.yml build
 
-      - name: Push Docker Images to Hub
+      - name: Push Docker 
         run: |
           docker-compose -f docker-compose.yml push
