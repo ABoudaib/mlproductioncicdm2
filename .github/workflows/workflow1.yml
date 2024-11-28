@@ -42,4 +42,4 @@ jobs:
           git fetch
           git checkout main
           git merge dev --allow-unrelated-histories
-          git push 
+          git push ttps://x-access-token:${{ secrets.TOKEN }}@github.com/${{ github.repository }}.git main
