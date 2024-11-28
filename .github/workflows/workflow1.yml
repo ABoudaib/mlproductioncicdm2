@@ -1,0 +1,52 @@
+name: On merge feature to dev
+
+on:
+  push:
+    branches: ["dev"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: backend dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: frontend dependencies
+        run: |
+          cd frontend
+          npm install 
+
+      - name: backend tests
+        run: |
+          cd backend
+          npm test
+
+      - name: frontend e2e
+        run: |
+          cd e2e-tests
+          npm test
+
+      - name: Git credentials
+        run: |
+          git config --global user.name "AbelB"
+          git config --global user.email "abel8177@gmail.com"
+
+      - name: Checkout main branch
+        run: |
+          git checkout main
+
+      - name: Merge dev to push
+        run: |
+          git merge dev 
+          git push 
