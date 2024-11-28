@@ -34,7 +34,7 @@ jobs:
 
       - name: Git credentials
         run: |
-          git config --global user.name "AbelB"
+          git config --global user.name "Abel Boudaib"
           git config --global user.email "abel8177@gmail.com"
 
       - name: Checkout main branch and merge
