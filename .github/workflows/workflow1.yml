@@ -39,9 +39,11 @@ jobs:
 
       - name: Checkout main branch
         run: |
-          git checkout main/origin
+          git fetch
+          git checkout main
 
       - name: Merge dev to push
         run: |
+          git fetch
           git merge dev 
           git push 
